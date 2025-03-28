@@ -48,8 +48,8 @@ inline esop_t esop_from_model( const sat::sat_solver::model_t& model, unsigned n
     bool cancel_cube = false;
     for ( auto l = 0u; l < num_vars; ++l )
     {
-      const auto p_value = model[j * num_vars + l] == l_True;
-      const auto q_value = model[num_vars * num_terms + j * num_vars + l] == l_True;
+      const auto p_value = model[j * num_vars + l] == Glucose::l_True;
+      const auto q_value = model[num_vars * num_terms + j * num_vars + l] == Glucose::l_True;
 
       if ( p_value && q_value )
       {
@@ -787,8 +787,8 @@ public:
         {
           for ( auto l = 0u; l < num_vars; ++l )
           {
-            const auto p_value = result.model[j * num_vars + l] == l_True;
-            const auto q_value = result.model[num_vars * k + j * num_vars + l] == l_True;
+            const auto p_value = result.model[j * num_vars + l] == Glucose::l_True;
+            const auto q_value = result.model[num_vars * k + j * num_vars + l] == Glucose::l_True;
 
             /* do not consider all possibilities for canceled cubes */
             if ( p_value && q_value )
